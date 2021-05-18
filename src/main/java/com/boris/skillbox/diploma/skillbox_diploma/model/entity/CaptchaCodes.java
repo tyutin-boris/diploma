@@ -3,14 +3,17 @@ package com.boris.skillbox.diploma.skillbox_diploma.model.entity;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
-import javax.persistence.*;
+import javax.persistence.Id;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "captcha_codes")
-@Setter
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor

@@ -1,34 +1,32 @@
 package com.boris.skillbox.diploma.skillbox_diploma.model.entity.post;
 
+import com.boris.skillbox.diploma.skillbox_diploma.model.entity.User;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "post_votes")
-@Setter
+@Table(name = "likes")
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
-public class PostVote {
+public class Like {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private long id;
 
-    @Column(name = "user_id", nullable = false)
-    private long userId;
+    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinColumn(name = "user_id", nullable = false)
+    private User user;
 
-    @Column(name = "post_id", nullable = false)
-    private long postId;
+    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinColumn(name = "post_id", nullable = false)
+    private Post post;
 
     @Column(nullable = false)
     private LocalDateTime time;
-
-    @Column(nullable = false)
-    private boolean value;
 }
