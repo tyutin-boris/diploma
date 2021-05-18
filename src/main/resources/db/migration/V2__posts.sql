@@ -1,0 +1,41 @@
+CREATE TABLE posts (
+	id BIGSERIAL NOT NULL,
+	is_active boolean NOT NULL,
+	moderation_status int4 NOT NULL,
+	moderation_id int8,
+	user_id int8 references users (id) NOT NULL,
+	time timestamp NOT NULL,
+	title varchar(255) NOT NULL,
+	text varchar(2048) NOT NULL,
+	view_count int4 NOT NULL,
+	PRIMARY KEY (id));
+
+INSERT INTO posts (id, is_active, moderation_status, user_id, time, title, text, view_count)
+    VALUES (0, true, 1, 0, '2021-05-03T08:42:48.122766800', 'How to use the toString() in Java', 'The toString() method in Java has two implementations. The first implementation is when it is called as a method of an object instance. The example below shows this implementation.', 10),
+           (1, true, 1, 0, '2021-05-03T08:42:48.122766800', 'Java String equals()', 'The java string equals() method compares the two given strings based on the content of the string. If any character is not matched, it returns false. If all characters are matched, it returns true. The String equals() method overrides the equals() method of Object class', 10),
+           (2, true, 1, 0, '2021-05-03T08:42:48.122766800', 'The annotated entity Java class', 'The entity class in this tutorial is org.hibernate.tutorial.annotations.Event which follows JavaBean conventions. In fact the class itself is identical to the one in The entity Java class, except that annotations are used to provide the metadata, rather than a separate mapping file.', 10),
+           (3, true, 1, 0, '2021-05-03T08:42:48.122766800', 'Building an Application with Spring Boot', 'This guide provides a sampling of how Spring Boot helps you accelerate application development. As you read more Spring Getting Started guides, you will see more use cases for Spring Boot. This guide is meant to give you a quick taste of Spring Boot. If you want to create your own Spring Boot-based project, visit Spring Initializr, fill in your project details, pick your options, and download a bundled up project as a zip file.', 10),
+           (4, true, 1, 0, '2021-05-03T08:42:48.122766800', 'Standalone Operation', 'By default, Hadoop is configured to run in a non-distributed mode, as a single Java process. This is useful for debugging.The following example copies the unpacked conf directory to use as input and then finds and displays every match of the given regular expression. Output is written to the given output directory.', 10),
+           (5, true, 1, 1, '2021-05-03T08:42:48.122766800', 'Java String contains()', 'The java string contains() method searches the sequence of characters in this string. It returns true if sequence of char values are found in this string otherwise returns false.', 10),
+           (6, true, 1, 1, '2021-05-03T08:42:48.122766800', 'Java StringBuilder class', 'Java StringBuilder class is used to create mutable (modifiable) string. The Java StringBuilder class is same as StringBuffer class except that it is non-synchronized. It is available since JDK 1.5.', 10),
+           (7, true, 1, 1, '2021-05-03T08:42:48.122766800', '4.1. persistence.xml', 'The previous tutorials used the Hibernate-specific hibernate.cfg.xml configuration file. JPA, however, defines a different bootstrap process that uses its own configuration file named persistence.xml. This bootstrapping process is defined by the JPA specification. In Java™ SE environments the persistence provider (Hibernate in this case) is required to locate all JPA configuration files by classpath lookup of the META-INF/persistence.xml resource name.', 10),
+           (8, true, 1, 1, '2021-05-03T08:42:48.122766800', 'Learn What You Can Do with Spring Boot', 'Spring Boot offers a fast way to build applications. It looks at your classpath and at the beans you have configured, makes reasonable assumptions about what you are missing, and adds those items. With Spring Boot, you can focus more on business features and less on infrastructure.', 10),
+           (9, true, 1, 1, '2021-05-03T08:42:48.122766800', 'Web Interface', 'NameNode and DataNode each run an internal web server in order to display basic information about the current status of the cluster. With the default configuration, the NameNode front page is at http://namenode-name:9870/. It lists the DataNodes in the cluster and basic statistics of the cluster. The web interface can also be used to browse the file system (using “Browse the file system” link on the NameNode front page).', 10),
+           (10, true, 1, 2, '2021-05-03T08:42:48.122766800', 'Shell Commands', 'Hadoop includes various shell-like commands that directly interact with HDFS and other file systems that Hadoop supports. The command bin/hdfs dfs -help lists the commands supported by Hadoop shell. Furthermore, the command bin/hdfs dfs -help command-name displays more detailed help for a command. These commands support most of the normal files system operations like copying files, changing file permissions, etc. It also supports a few HDFS specific operations like changing replication of files. For more information see File System Shell Guide.', 10),
+           (11, true, 1, 2, '2021-05-03T08:42:48.122766800', 'CharSequence Interface', 'The CharSequence interface is used to represent the sequence of characters. String, StringBuffer and StringBuilder classes implement it. It means, we can create strings in java by using these three classes.', 10),
+           (12, true, 1, 2, '2019-05-03T08:42:48.122766800', 'What is String in java', 'Generally, String is a sequence of characters. But in Java, string is an object that represents a sequence of characters. The java.lang.String class is used to create a string object.', 10),
+           (13, true, 1, 2, '2020-05-03T08:42:48.122766800', '5.3. Example code', 'The code saves some entities, makes a change to one of the entities and then uses the Envers API to pull back the initial revision as well as the updated revision. A revision refers to a historical snapshot of an entity.', 10),
+           (14, true, 1, 2, '2020-05-03T08:42:48.122766800', 'Add Production-grade Services', 'If you are building a web site for your business, you probably need to add some management services. Spring Boot provides several such services (such as health, audits, beans, and more) with its actuator module.', 10),
+           (15, true, 1, 2, '2020-05-03T08:42:48.122766800', '15', '15', 10),
+           (16, true, 1, 2, '2019-05-03T08:42:48.122766800', '16', '16', 10),
+           (17, true, 0, 2, '2019-05-03T08:42:48.122766800', '17', '17', 10),
+           (18, false, 1, 2, '2019-05-03T08:42:48.122766800', '18', '18', 18),
+           (19, true, 1, 2, '2021-05-03T08:42:48.122766800', '19', '19', 19),
+           (20, true, 1, 2, '2021-04-03T08:42:48.122766800', '20', '20', 20),
+           (21, true, 1, 2, '2021-05-03T08:42:48.122766800', '21', '21', 10),
+           (22, true, 1, 2, '2021-05-03T08:42:48.122766800', '22', '22', 10),
+           (23, true, 1, 2, '2021-05-03T08:42:48.122766800', '23', '23', 10),
+           (24, true, 1, 2, '2021-05-01T09:42:48.122766800', '24', '24', 10),
+           (25, true, 1, 2, '2021-05-03T08:10:48.122766800', '25', '25', 10);
+
+

@@ -5,16 +5,22 @@ import com.boris.skillbox.diploma.skillbox_diploma.model.entity.post.Post;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
-import javax.persistence.*;
+import javax.persistence.Id;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+import javax.persistence.GeneratedValue;
+import javax.persistence.OneToMany;
+import javax.persistence.GenerationType;
+import javax.persistence.FetchType;
+import javax.persistence.CascadeType;
 import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity
 @Table(name = "users")
 @Getter
-@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 public class User {
@@ -42,11 +48,9 @@ public class User {
 
     private String photo;
 
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinColumn(name = "user_id")
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL, mappedBy = "user")
     private List<Post> posts;
 
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinColumn(name = "user_id")
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL, mappedBy = "user")
     private List<Comment> comments;
 }

@@ -1,0 +1,33 @@
+CREATE TABLE tag_to_post (
+	id BIGSERIAL NOT NULL,
+	post_id int8 references posts (id) NOT NULL,
+	tag_id int8  references tags (id) NOT NULL,
+	PRIMARY KEY (id));
+
+INSERT INTO tag_to_post
+    VALUES (0, 0, 0),
+           (1, 1, 0),
+           (2, 2, 2),
+           (3, 3, 1),
+           (4, 4, 3),
+           (5, 5, 0),
+           (6, 6, 0),
+           (7, 7, 2),
+           (8, 8, 1),
+           (9, 9, 3),
+           (10, 10, 3),
+           (11, 11, 0),
+           (12, 12, 0),
+           (13, 13, 2),
+           (14, 14, 1),
+           (15, 15, 0),
+           (16, 16, 0),
+           (17, 17, 0),
+           (18, 18, 0),
+           (19, 19, 1),
+           (20, 20, 1),
+           (21, 21, 1),
+           (22, 22, 2),
+           (23, 23, 2),
+           (24, 24, 3),
+           (25, 25, 3);

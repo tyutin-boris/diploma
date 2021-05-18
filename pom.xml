@@ -12,7 +12,6 @@
 	<artifactId>skillbox_diploma</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>skillbox_diploma</name>
-	<description>Demo project for Spring Boot</description>
 	<properties>
 		<java.version>11</java.version>
 	</properties>
@@ -48,12 +47,16 @@
 			</exclusions>
 		</dependency>
 		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
 			<groupId>org.flywaydb</groupId>
 			<artifactId>flyway-core</artifactId>
 			<version>5.2.4</version>
 		</dependency>
 	</dependencies>
-
 	<build>
 		<plugins>
 			<plugin>
@@ -62,5 +65,4 @@
 			</plugin>
 		</plugins>
 	</build>
-
 </project>

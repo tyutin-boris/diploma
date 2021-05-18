@@ -1,12 +1,17 @@
 package com.boris.skillbox.diploma.skillbox_diploma.model.entity;
 
-import com.boris.skillbox.diploma.skillbox_diploma.model.entity.enums.Code;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.*;
+import javax.persistence.Id;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 
 @Entity
 @Table(name = "global_settings")
@@ -21,10 +26,7 @@ public class GlobalSettings {
     private long id;
 
     @Column(nullable = false)
-    private Code code;
-
-    @Column(nullable = false)
-    private String name;
+    private String code;
 
     @Column(nullable = false)
     private boolean value;
