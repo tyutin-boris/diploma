@@ -10,12 +10,14 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class TagResponse {
-    private String name;
-    @JsonInclude(JsonInclude.Include.NON_NULL)
-    private double weight;
+public class RegisterResponse {
 
-    public TagResponse(String name) {
-        this.name = name;
+    private boolean result;
+
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    private ErrorResponse errors;
+
+    public RegisterResponse(boolean result) {
+        this.result = result;
     }
 }

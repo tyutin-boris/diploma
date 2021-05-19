@@ -62,4 +62,22 @@ public class PostServiceImpl implements PostService {
     public Page<Post> findAllByDate(String date, Pageable pageable) {
         return postRepository.findAllByDate(date, pageable);
     }
+
+    @Override
+    public Page<Post> findAllByTag(String tag, Pageable pageable) {
+        return postRepository.findAllByTag(tag, pageable);
+    }
+
+    @Override
+    public Post findById(long id) {
+        Post post = postRepository.findById(id);
+        post.setViewCount(post.getViewCount() + 1);
+        postRepository.save(post);
+        return post;
+    }
+
+    @Override
+    public Page<Post> findAllByTitleOrText(String query, Pageable pageable) {
+        return postRepository.findAllByTitleOrText(query, pageable);
+    }
 }

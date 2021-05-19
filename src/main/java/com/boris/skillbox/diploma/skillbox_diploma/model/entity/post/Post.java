@@ -3,27 +3,18 @@ package com.boris.skillbox.diploma.skillbox_diploma.model.entity.post;
 
 import com.boris.skillbox.diploma.skillbox_diploma.model.entity.User;
 import com.boris.skillbox.diploma.skillbox_diploma.model.entity.enums.Status;
+import com.boris.skillbox.diploma.skillbox_diploma.model.entity.tag.Tag;
 import lombok.AllArgsConstructor;
-import lombok.Getter;
+import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Id;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
-import javax.persistence.GeneratedValue;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-import javax.persistence.JoinColumn;
-import javax.persistence.GenerationType;
-import javax.persistence.CascadeType;
-import javax.persistence.FetchType;
+import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity
 @Table(name = "posts")
-@Getter
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class Post {
@@ -65,4 +56,10 @@ public class Post {
 
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL, mappedBy = "post")
     private List<DisLike> disLikes;
+
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinTable(name = "tag_to_post",
+            joinColumns = @JoinColumn(name = "post_id"),
+            inverseJoinColumns = @JoinColumn(name = "tag_id"))
+    private List<Tag> tags;
 }
