@@ -7,7 +7,9 @@ import java.util.Map;
 
 public interface GlobalSettingsService {
 
-    List<GlobalSettings> getAllGlobalSettings();
+    List<GlobalSettings> findAllGlobalSettings();
 
     void saveAll(Map<String, Boolean> settings);
+
+    Map<String, Boolean> getAllGlobalSettings();
 }

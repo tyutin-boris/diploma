@@ -2,7 +2,7 @@ package com.boris.skillbox.diploma.skillbox_diploma.model.entity.post;
 
 import com.boris.skillbox.diploma.skillbox_diploma.model.entity.User;
 import lombok.AllArgsConstructor;
-import lombok.Getter;
+import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
@@ -10,7 +10,7 @@ import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "comments")
-@Getter
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class Comment {

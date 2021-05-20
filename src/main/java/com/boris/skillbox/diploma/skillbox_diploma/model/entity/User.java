@@ -3,7 +3,7 @@ package com.boris.skillbox.diploma.skillbox_diploma.model.entity;
 import com.boris.skillbox.diploma.skillbox_diploma.model.entity.post.Comment;
 import com.boris.skillbox.diploma.skillbox_diploma.model.entity.post.Post;
 import lombok.AllArgsConstructor;
-import lombok.Getter;
+import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
@@ -12,7 +12,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "users")
-@Getter
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class User {

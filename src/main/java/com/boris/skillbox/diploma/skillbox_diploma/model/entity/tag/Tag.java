@@ -2,7 +2,7 @@ package com.boris.skillbox.diploma.skillbox_diploma.model.entity.tag;
 
 import com.boris.skillbox.diploma.skillbox_diploma.model.entity.post.Post;
 import lombok.AllArgsConstructor;
-import lombok.Getter;
+import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
@@ -10,7 +10,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "tags")
-@Getter
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class Tag {
@@ -26,5 +26,5 @@ public class Tag {
     @JoinTable(name = "tag_to_post",
             joinColumns = @JoinColumn(name = "tag_id"),
             inverseJoinColumns = @JoinColumn(name = "post_id"))
-    private List<Post> post;
+    private List<Post> posts;
 }

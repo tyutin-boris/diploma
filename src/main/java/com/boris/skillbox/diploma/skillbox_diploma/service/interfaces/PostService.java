@@ -26,4 +26,6 @@ public interface PostService {
     Post findById(long id);
 
     Page<Post> findAllByTitleOrText(String query, Pageable pageable);
+
+    Long count();
 }

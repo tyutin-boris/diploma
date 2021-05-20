@@ -1,9 +1,9 @@
 package com.boris.skillbox.diploma.skillbox_diploma.repository;
 
-import com.boris.skillbox.diploma.skillbox_diploma.model.entity.CaptchaCodes;
+import com.boris.skillbox.diploma.skillbox_diploma.model.entity.CaptchaCode;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface CaptchaRepository extends JpaRepository<CaptchaCodes, Long> {
+public interface CaptchaRepository extends JpaRepository<CaptchaCode, Long> {
 
-    CaptchaCodes findBySecret(String captchaSecret);
+    CaptchaCode findBySecret(String captchaSecret);
 }

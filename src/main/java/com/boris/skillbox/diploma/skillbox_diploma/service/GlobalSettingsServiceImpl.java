@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.CopyOnWriteArrayList;
+import java.util.stream.Collectors;
 
 @Service
 public class GlobalSettingsServiceImpl implements GlobalSettingsService {
@@ -20,14 +21,20 @@ public class GlobalSettingsServiceImpl implements GlobalSettingsService {
 
 
     @Override
-    public List<GlobalSettings> getAllGlobalSettings() {
+    public List<GlobalSettings> findAllGlobalSettings() {
         return repository.findAll();
     }
 
     @Override
     public void saveAll(Map<String, Boolean> settings) {
-        List<GlobalSettings> allGlobalSettings = new CopyOnWriteArrayList<>(getAllGlobalSettings());
+        List<GlobalSettings> allGlobalSettings = new CopyOnWriteArrayList<>(findAllGlobalSettings());
         allGlobalSettings.forEach(s -> s.setValue(settings.get(s.getCode())));
         repository.saveAll(allGlobalSettings);
+    }
+
+    @Override
+    public Map<String, Boolean> getAllGlobalSettings() {
+        return repository.findAll().stream()
+                .collect(Collectors.toMap(GlobalSettings::getCode, GlobalSettings::isValue));
     }
 }

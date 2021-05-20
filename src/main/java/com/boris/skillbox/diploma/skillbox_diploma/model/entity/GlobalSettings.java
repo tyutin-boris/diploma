@@ -1,17 +1,14 @@
 package com.boris.skillbox.diploma.skillbox_diploma.model.entity;
 
-
 import lombok.AllArgsConstructor;
-import lombok.Getter;
+import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 import javax.persistence.*;
 
 @Entity
 @Table(name = "global_settings")
-@Setter
-@Getter
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class GlobalSettings {

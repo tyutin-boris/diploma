@@ -1,7 +1,7 @@
 package com.boris.skillbox.diploma.skillbox_diploma.model.entity;
 
 import lombok.AllArgsConstructor;
-import lombok.Getter;
+import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
@@ -10,10 +10,10 @@ import java.time.ZoneId;
 
 @Entity
 @Table(name = "captcha_codes")
-@Getter
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class CaptchaCodes {
+public class CaptchaCode {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
@@ -28,7 +28,7 @@ public class CaptchaCodes {
     @Column(name = "secret_code", nullable = false)
     private String secret;
 
-    public CaptchaCodes(LocalDateTime time, String code, String secret) {
+    public CaptchaCode(LocalDateTime time, String code, String secret) {
         this.time = time;
         this.code = code;
         this.secret = secret;

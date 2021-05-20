@@ -1,12 +1,13 @@
 package com.boris.skillbox.diploma.skillbox_diploma.service.interfaces;
 
-import com.boris.skillbox.diploma.skillbox_diploma.model.entity.CaptchaCodes;
+import cn.apiclub.captcha.Captcha;
+import com.boris.skillbox.diploma.skillbox_diploma.model.entity.CaptchaCode;
 
 public interface CaptchaService {
 
-    void save(CaptchaCodes captchaCodes);
+    void save(CaptchaCode captchaCodes);
 
-    void deleteAllOldCaptcha(long limit);
+    Captcha getCaptcha();
 
-    boolean equalsCaptcha(String captchaSecret, String captchaCode);
+    boolean isCaptchaValid(String captchaSecret, String captchaCode);
 }
