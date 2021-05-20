@@ -10,6 +10,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.TreeSet;
 import java.util.stream.Collectors;
@@ -44,7 +46,8 @@ public class PostServiceImpl implements PostService {
     }
 
     @Override
-    public CalendarResponse getNumbersOfPostPerYear(String year) {
+    public CalendarResponse getNumbersOfPostPerYear(String date) {
+        String year = date.isEmpty() ? LocalDate.now().format(DateTimeFormatter.ISO_DATE).substring(0, 4) : date;
         CalendarResponse calendarResponse = new CalendarResponse();
         calendarResponse.setYears(postRepository.getAllYears()
                 .stream()
@@ -61,5 +64,28 @@ public class PostServiceImpl implements PostService {
     @Override
     public Page<Post> findAllByDate(String date, Pageable pageable) {
         return postRepository.findAllByDate(date, pageable);
+    }
+
+    @Override
+    public Page<Post> findAllByTag(String tag, Pageable pageable) {
+        return postRepository.findAllByTag(tag, pageable);
+    }
+
+    @Override
+    public Post findById(long id) {
+        Post post = postRepository.findById(id);
+        post.setViewCount(post.getViewCount() + 1);
+        postRepository.save(post);
+        return post;
+    }
+
+    @Override
+    public Page<Post> findAllByTitleOrText(String query, Pageable pageable) {
+        return postRepository.findAllByTitleOrText(query, pageable);
+    }
+
+    @Override
+    public Long count() {
+        return postRepository.count();
     }
 }

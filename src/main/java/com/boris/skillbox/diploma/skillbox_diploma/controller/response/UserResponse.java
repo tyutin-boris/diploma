@@ -35,4 +35,10 @@ public class UserResponse {
         this.id = id;
         this.name = name;
     }
+
+    public UserResponse(long id, String name, String photo) {
+        this.id = id;
+        this.name = name;
+        this.photo = photo;
+    }
 }

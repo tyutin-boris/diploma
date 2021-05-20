@@ -20,4 +20,12 @@ public interface PostService {
     CalendarResponse getNumbersOfPostPerYear(String year);
 
     Page<Post> findAllByDate(String date, Pageable pageable);
+
+    Page<Post> findAllByTag(String tag, Pageable pageable);
+
+    Post findById(long id);
+
+    Page<Post> findAllByTitleOrText(String query, Pageable pageable);
+
+    Long count();
 }

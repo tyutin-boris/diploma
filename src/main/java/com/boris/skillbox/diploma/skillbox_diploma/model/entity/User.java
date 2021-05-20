@@ -3,24 +3,16 @@ package com.boris.skillbox.diploma.skillbox_diploma.model.entity;
 import com.boris.skillbox.diploma.skillbox_diploma.model.entity.post.Comment;
 import com.boris.skillbox.diploma.skillbox_diploma.model.entity.post.Post;
 import lombok.AllArgsConstructor;
-import lombok.Getter;
+import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Id;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
-import javax.persistence.GeneratedValue;
-import javax.persistence.OneToMany;
-import javax.persistence.GenerationType;
-import javax.persistence.FetchType;
-import javax.persistence.CascadeType;
+import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity
 @Table(name = "users")
-@Getter
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class User {
@@ -42,9 +34,9 @@ public class User {
     private String email;
 
     @Column(name = "password", nullable = false)
-    private char[] password;
+    private String password;
 
-    private char[] code;
+    private String code;
 
     private String photo;
 
@@ -53,4 +45,12 @@ public class User {
 
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL, mappedBy = "user")
     private List<Comment> comments;
+
+    public User(String name, String email, String password, LocalDateTime regTime, boolean isModerator) {
+        this.name = name;
+        this.email = email;
+        this.password = password;
+        this.regTime = regTime;
+        this.isModerator = isModerator;
+    }
 }

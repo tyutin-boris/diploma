@@ -18,6 +18,7 @@ public class PostResponse {
     private long timestamp;
     private UserResponse user;
     private String title;
+    private String text;
     private String announce;
     private long likeCount;
     private long dislikeCount;
@@ -30,6 +31,7 @@ public class PostResponse {
                 post.getTime().atZone(ZoneId.systemDefault()).toEpochSecond(),
                 new UserResponse(post.getUser().getId(), ""),
                 post.getTitle(),
+                post.getText(),
                 post.getText().length() > 150 ?
                         post.getText().substring(0, 150) + "..." :
                         post.getText(),

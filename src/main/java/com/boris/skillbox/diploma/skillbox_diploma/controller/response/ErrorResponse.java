@@ -9,11 +9,9 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class TagResponse {
+public class ErrorResponse {
+    private String email;
     private String name;
-    private double weight;
-
-    public TagResponse(String name) {
-        this.name = name;
-    }
+    private String password;
+    private String captcha;
 }
